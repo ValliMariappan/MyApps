@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PostService } from './services/post.service';
-import {ContactDetailComponent} from './contactDetail.component';
+
 
 @Component({
     selector: 'Home',

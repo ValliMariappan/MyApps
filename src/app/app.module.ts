@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register.component';
 import { ProductsComponent } from './component/products.component';
 import {HomeComponent} from './component/home.component';
-import { ContactDetailComponent } from './component/contactDetail.component';
+
 import { routing } from './app.routing';
 import {
   MatAutocompleteModule,
@@ -51,8 +51,8 @@ import 'hammerjs';
     AppComponent,
     RegisterComponent,
     ProductsComponent,
-    HomeComponent,
-    ContactDetailComponent
+    HomeComponent
+  
   ],
   imports: [
     BrowserModule,
