@@ -1,0 +1,72 @@
+
+<div class="alignrows" >
+<form #f="ngForm" (ngSubmit)="getDetails(f)">
+<mat-card >
+<mat-card-title align = "center">Register</mat-card-title>
+<mat-card-content class="alignrows">
+    <mat-grid-list cols="2" rowHeight="4:1">
+            <mat-grid-tile> <div class="aligntext"> First Name :</div></mat-grid-tile>
+            <mat-grid-tile>
+                    <mat-form-field class="alignInput">
+                    <input matInput name = "firstName" placeholder="First Name" required [(ngModel)]="firstName">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile> <div class="aligntext">Last Name : </div></mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field  class="alignInput">
+                    <input matInput name = "lastName" placeholder="Last Name" required [(ngModel)]="lastName">
+                </mat-form-field>
+            </mat-grid-tile>
+                <mat-grid-tile><div class="aligntext">Date Of Birth : </div></mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field  class="alignInput">
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="dob" required [(ngModel)]="dob">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>              
+                        </mat-form-field>
+                    </mat-grid-tile>
+                <mat-grid-tile><div class="aligntext">Email :</div></mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field  class="alignInput">
+                        <input matInput name = "email" placeholder="Email" type="email" required [(ngModel)]="email" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile><div class="aligntext"> Phone :</div></mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field  class="alignInput">
+                        <input matInput placeholder="phone" name = "phone" required [(ngModel)]="phone">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                <mat-grid-tile> <div class="aligntext">Password : </div></mat-grid-tile>
+                <mat-grid-tile> 
+                        <mat-form-field  class="alignInput">
+                        <input matInput name = "password" placeholder="Password" type="password" required [(ngModel)]="password">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile><div class="aligntext"> Gender :</div></mat-grid-tile>
+                <mat-grid-tile>
+                        <mat-radio-group  class="alignInput" [(ngModel)]="gender" name="gender">
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button value="Female">Female</mat-radio-button>
+                        </mat-radio-group>
+                    </mat-grid-tile>
+
+            </mat-grid-list>
+
+
+</mat-card-content>
+
+<mat-card-actions class="alignrows">
+    <mat-grid-list  cols="2" rowHeight="4:1">
+            <mat-grid-tile>   
+    <button mat-button class="mat-primary aligntext" type="submit" [disabled]="!f.form.valid"><h3>Register</h3></button>
+</mat-grid-tile>
+    <mat-grid-tile> 
+            <button mat-button class="alignInput"><h3>Cancel</h3></button>
+        </mat-grid-tile>
+</mat-grid-list>
+</mat-card-actions>
+
+</mat-card>
+</form>
+</div>

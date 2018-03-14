@@ -1,0 +1,55 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-toolbar {
+    position: fixed;
+    z-index: 2;
+  }
+  
+  h1.example-app-name {
+    margin-left: 8px;
+  }
+  
+  .example-sidenav-container {
+    flex: 1;
+  }
+  
+.example-sidenav-container {
+      flex: 1 0 auto;
+  }
+  .position-to-right {
+    position: absolute;
+    top :15%;
+    bottom: 0;
+    left: 90%;
+    right:0;
+  }
+  .alignrows{
+    margin: auto;
+    width: 60%;
+    padding: 10px;  
+  }
+  .aligntext{
+    position: absolute;
+    left: 100px;
+  }
+  .alignInput{
+    position: absolute;
+    left: 50px;
+  }
+  .alignImages{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 25%;
+    padding: 10px;
+    font-size: 2em; 
+    
+  }
