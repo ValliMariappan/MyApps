@@ -10,12 +10,12 @@ import { PostService } from './services/post.service';
 export class ProductsComponent {
   posts : Posts[];
 
-  constructor (private postsService : PostService){
+ /* constructor (private postsService : PostService){
     this.postsService.getPosts().subscribe(posts =>{
         this.posts = posts;
     }); 
    
-  }
+  }*/
 }
 interface Posts{
     id : number;
