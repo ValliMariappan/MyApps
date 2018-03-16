@@ -14,11 +14,12 @@ export class HomeComponent {
     public response:string;
 
 
- // constructor(private postsService : PostService) {
+  constructor(private postsService : PostService) {
       
-   //    this.postsService.postCallToSalesforce();
+      this.postsService.postCallToSalesforce().subscribe(res=>
+    this.response = res);
        
-      //console.log(this.response);
-  // }
+      console.log(this.response);
+   }
 }
 

@@ -16,7 +16,7 @@ getPosts(){
 }
 
 
-/*postCallToSalesforce(){
+postCallToSalesforce(){
 
    let 
     loginURL ='https://creater-dev-ed.my.salesforce.com/services/oauth2/token',
@@ -30,17 +30,17 @@ getPosts(){
 
 headers.append('Authorization', 'Oauth2');
 headers.append('Content-Type', 'application/x-www-form-urlencoded');
-headers.append('Access-Control-Allow-Origin','http://localhost:4200');
+headers.append('Access-Control-Allow-Origin','*');
 headers.append('Access-Control-Allow-Methods', 'POST');
 headers.append('Access-Control-Allow-Credentials', 'true');
 
 
 let requestOptions = new RequestOptions({ headers: headers });
 //grant_type=password&client_id=3MVG9ZL0ppGP5UrDWHnFtfeuvi4KRg.pKAAwFJWlUH22Q2OiEmxfEMOugL8Ptree2WFs7mQjVY6v3qYwn6om3&client_secret=5891115970891767783&username=vallimariappan@sapient.com&password=Vall1@devorgMHOpC13vJQa1WXDk60WVk6kEB
-    let fullUrl = '?grant_type=password'+'&client_id='+appId+'&client_secret='+clientsecret+'&username='+username+'&password='+password;
+    let fullUrl = 'grant_type=password'+'&client_id='+appId+'&client_secret='+clientsecret+'&username='+username+'&password='+password;
     return this.http.post(loginURL,fullUrl,{ headers: headers }).map(res => res.json());
     
-    debugger;
+   /* debugger;
   //var jsforce ;
     let jsforce =require("./node_modules/jsforce/lib/browser/jsforce.js");
     let conn = new jsforce.Connection({
@@ -66,4 +66,5 @@ conn.login('debprotim.seal@ihsmarkit.com.stage', '#welcome123qLMLl9pkdV1F4khnM8e
 });
 return conn;
 }*/
+}
 }
