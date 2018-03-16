@@ -30,7 +30,7 @@ postCallToSalesforce(){
 
 headers.append('Authorization', 'Oauth2');
 headers.append('Content-Type', 'application/x-www-form-urlencoded');
-headers.append('Access-Control-Allow-Origin','*');
+headers.append('Access-Control-Allow-Origin','https://ang-material.herokuapp.com');
 headers.append('Access-Control-Allow-Methods', 'POST');
 headers.append('Access-Control-Allow-Credentials', 'true');
 
