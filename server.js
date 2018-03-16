@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const jsfrc = require('jsforce');
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -21,6 +22,7 @@ const forceSSL = function() {
 // middleware
 app.use(forceSSL());
 app.use(cors());
+app.use(jsforce());
 
 // Run the app by serving the static files
 // in the dist directory
