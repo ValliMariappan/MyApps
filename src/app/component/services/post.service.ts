@@ -27,9 +27,7 @@ postCallToSalesforce(){
     clientsecret = '5891115970891767783';
  // let response =  response.addHeader("Access-Control-Allow-Origin", "*");
  let headers = new Headers();
-
-
-headers.append('Content-Type', 'application/x-www-form-urlencoded');
+//headers.append('Content-Type', 'application/x-www-form-urlencoded');
 headers.append('Access-Control-Allow-Origin','https://ang-material.herokuapp.com');
 headers.append('Access-Control-Allow-Methods', 'POST');
 headers.append('Access-Control-Allow-Credentials', 'true');
