@@ -16,7 +16,7 @@ getPosts(){
 
 postCallToSalesforce(){
 
-  var force = require('force');
+  var force = require('nforce');
 
   var org = force.createConnection({
     clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
