@@ -24,16 +24,16 @@ postCallToSalesforce(){
     redirectUri: 'https://test.salesforce.com/services/oauth2/success',
     apiVersion: 'v42.0',  // optional, defaults to current salesforce API version
     environment: 'sandbox',  // optional, salesforce 'sandbox' or 'production', production default
-    mode: 'multi' // optional, 'single' or 'multi' user mode, multi default
+    mode: 'single' // optional, 'single' or 'multi' user mode, multi default
   });
 // multi user mode
 var oauth;
 org.authenticate({ username: 'kvora2@spdemo5.demo.kv', password: 'Khyati@Vora1'}, function(err, resp){
-  // store the oauth object for this user
-  if(!err) oauth = resp.json();
+  // the oauth object was stored in the connection object
+  if(!err) console.log('Cached Token: ' + org.oauth.access_token)
 });
-console.log(oauth);
-return oauth;
+//console.log(oauth);
+return org.oauth;
  /*
   let 
     loginURL ='https://creater-dev-ed.my.salesforce.com/services/oauth2/token',
