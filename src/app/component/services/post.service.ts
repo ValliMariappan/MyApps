@@ -10,8 +10,7 @@ console.log('post initialized')
 }
 getPosts(){
 
-    return this.http.get('https://jsonplaceholder.typicode.com/photos')
-    .map(res => res.json());
+    return this.http.get('https://jsonplaceholder.typicode.com/photos').map(res => res.json());
 }
 
 
@@ -31,7 +30,7 @@ postCallToSalesforce(){
 var oauth;
 org.authenticate({ username: 'kvora2@spdemo5.demo.kv', password: 'Khyati@Vora1'}, function(err, resp){
   // store the oauth object for this user
-  if(!err) oauth = resp;
+  if(!err) oauth = resp.json();
 });
 console.log(oauth);
 return oauth;
