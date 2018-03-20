@@ -16,6 +16,7 @@ export class HomeComponent {
 
   constructor(private postsService : PostService) {
       
+    debugger;
       this.postsService.postCallToSalesforce();
      
    }

@@ -16,6 +16,7 @@ getPosts(){
 
 postCallToSalesforce(){
 
+  debugger;
     var nforce = require('nforce');
 
     var username      = 'kvora2@spdemo5.demo.kv',
