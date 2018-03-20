@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { HttpUrlEncodingCodec } from '@angular/common/http';
-
+import { oauth } from 'force';
 
 @Injectable()
 export class PostService{
@@ -18,7 +18,26 @@ getPosts(){
 
 postCallToSalesforce(){
 
-   let 
+  var force = require('force');
+
+  var org = force.createConnection({
+    clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
+    clientSecret: '6516230232174280544',
+    redirectUri: 'https://test.salesforce.com/services/oauth2/success',
+    apiVersion: 'v42.0',  // optional, defaults to current salesforce API version
+    environment: 'sandbox',  // optional, salesforce 'sandbox' or 'production', production default
+    mode: 'multi' // optional, 'single' or 'multi' user mode, multi default
+  });
+// multi user mode
+var oauth;
+org.authenticate({ username: 'kvora2@spdemo5.demo.kv', password: 'Khyati@Vora1'}, function(err, resp){
+  // store the oauth object for this user
+  if(!err) oauth = resp;
+});
+console.log(oauth);
+return oauth;
+
+  /* let 
     loginURL ='https://creater-dev-ed.my.salesforce.com/services/oauth2/token',
     appId = '3MVG9ZL0ppGP5UrDWHnFtfeuvi4KRg.pKAAwFJWlUH22Q2OiEmxfEMOugL8Ptree2WFs7mQjVY6v3qYwn6om3',
     oauthCallbackURL =  'https://login.salesforce.com/services/oauth2/success',
