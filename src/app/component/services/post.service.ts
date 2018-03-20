@@ -16,7 +16,7 @@ getPosts(){
 
 postCallToSalesforce(){
 
-  debugger;
+/*  debugger;
     var nforce = require('nforce');
 
     var username      = 'kvora2@spdemo5.demo.kv',
@@ -50,7 +50,7 @@ postCallToSalesforce(){
 //});
 //console.log(oauth);
 //return oauth;
- /*
+ 
   let 
     loginURL ='https://creater-dev-ed.my.salesforce.com/services/oauth2/token',
     appId = '3MVG9ZL0ppGP5UrDWHnFtfeuvi4KRg.pKAAwFJWlUH22Q2OiEmxfEMOugL8Ptree2WFs7mQjVY6v3qYwn6om3',

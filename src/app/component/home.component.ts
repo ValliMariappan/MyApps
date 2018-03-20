@@ -14,11 +14,11 @@ export class HomeComponent {
     public response:any;
 
 
-  constructor(private postsService : PostService) {
+ // constructor(private postsService : PostService) {
       
-    debugger;
-      this.postsService.postCallToSalesforce();
+   // debugger;
+     // this.postsService.postCallToSalesforce();
      
-   }
+  // }
 }
 
