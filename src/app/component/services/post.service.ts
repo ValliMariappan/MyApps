@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { HttpUrlEncodingCodec } from '@angular/common/http';
+import { authToken } from './globals';
+
 
 @Injectable()
 export class PostService{
@@ -16,6 +18,8 @@ getPosts(){
 
 postCallToSalesforce(){
 
+
+  alert( authToken );
 /*  debugger;
     var nforce = require('nforce');
 

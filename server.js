@@ -3,11 +3,10 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 var nforce  = require('nforce');
-
+var Myglobal = require ('./globals');
 var username      = 'kvora2@spdemo5.demo.kv',
 password      = 'Khyati@Vora1',
-securityToken = '8sIESue8gUzh9E6rphwa1vAFG',
-oauth;
+securityToken = '8sIESue8gUzh9E6rphwa1vAFG';
 
 var org = nforce.createConnection({
   clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
@@ -21,7 +20,8 @@ var org = nforce.createConnection({
 org.authenticate({ username: username, password: password, securityToken: securityToken }, function(err, resp){
   if(!err) {
     console.log('Access Token: ' + resp.access_token);
-    oauth = resp;
+    Myglobal.authToken= resp;
+    console.log( Myglobal.authToken);
   } else {
     console.log('Error: ' + err.message);
   }
