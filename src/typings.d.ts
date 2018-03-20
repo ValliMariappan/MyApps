@@ -12,7 +12,7 @@ interface AppRequire {
     callback: (...modules: any[]) => void): void | any;
   ensure: (
     paths: string[], 
-    callback: (require: <T>(path: string) => T) => void, chunkName?: string) => void | any;
+    callback: (require: <T>(path: string) => T) => void, name?: string) => void | any;
   context: any;
 }
 interface NodeRequire extends AppRequire  {

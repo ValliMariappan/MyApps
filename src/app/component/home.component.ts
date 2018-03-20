@@ -16,8 +16,9 @@ export class HomeComponent {
 
   constructor(private postsService : PostService) {
       
-      this.postsService.postCallToSalesforce().subscribe(res=> console.log(res));
-       
+      this.postsService.postCallToSalesforce().subscribe(res=>
+  this.response = res.json());
+       console.log(this.response);
      
    }
 }

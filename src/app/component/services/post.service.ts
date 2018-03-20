@@ -16,7 +16,7 @@ getPosts(){
 
 postCallToSalesforce(){
 
-  var force = require('nforce');
+   /* var force = require('nforce');
 
   var org = force.createConnection({
     clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
@@ -55,9 +55,9 @@ let requestOptions = new RequestOptions({ headers: headers });
     let fullUrl = 'grant_type=password'+'&client_id='+appId+'&client_secret='+clientsecret+'&username='+username+'&password='+password;
     return this.http.post(loginURL,fullUrl,{ headers: headers }).map(res => res.json());
     
-   /* debugger;
-  //var jsforce ;
-    let jsforce =require("./node_modules/jsforce/lib/browser/jsforce.js");
+  debugger;*/
+
+    let jsforce =require('jsforce');
     let conn = new jsforce.Connection({
   oauth2 : {
     // you can change loginUrl to connect to sandbox or prerelease env.
@@ -81,8 +81,7 @@ conn.login('debprotim.seal@ihsmarkit.com.stage', '#welcome123qLMLl9pkdV1F4khnM8e
 });
 return conn;
 }
-*/
+
 //var oauth;
 //return oauth;
-}
 }
