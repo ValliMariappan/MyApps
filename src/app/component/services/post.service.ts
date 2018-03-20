@@ -79,7 +79,7 @@ conn.login('debprotim.seal@ihsmarkit.com.stage', '#welcome123qLMLl9pkdV1F4khnM8e
   console.log("Org ID: " + userInfo.organizationId);
   // ...
 });
-return conn;
+return conn.json();
 }
 
 //var oauth;
