@@ -18,6 +18,13 @@ postCallToSalesforce(){
 
     var nforce = require('nforce');
 
+    var username      = 'kvora2@spdemo5.demo.kv',
+    password      = 'Khyati@Vora1',
+    securityToken = '8sIESue8gUzh9E6rphwa1vAFG',
+    oauth;
+
+
+
   var org = nforce.createConnection({
     clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
     clientSecret: '6516230232174280544',
@@ -26,14 +33,22 @@ postCallToSalesforce(){
     environment: 'sandbox',  // optional, salesforce 'sandbox' or 'production', production default
     mode: 'single' // optional, 'single' or 'multi' user mode, multi default
   });
+  org.authenticate({ username: username, password: password, securityToken: securityToken }, function(err, resp){
+    if(!err) {
+      console.log('Access Token: ' + resp.access_token);
+      oauth = resp;
+    } else {
+      console.log('Error: ' + err.message);
+    }
+  });
 // multi user mode
-var oauth;
-org.authenticate({ username: 'kvora2@spdemo5.demo.kv', password: 'Khyati@Vora1'}, function(err, resp){
+//var oauth;
+//org.authenticate({ username: 'kvora2@spdemo5.demo.kv', password: 'Khyati@Vora18sIESue8gUzh9E6rphwa1vAFG'}, function(err, resp){
   // the oauth object was stored in the connection object
-  if(!err) console.log('Cached Token: ' + org.oauth.access_token)
-});
+ //if(!err) console.log('Cached Token: ' + org.oauth.access_token)
+//});
 //console.log(oauth);
-return org.oauth.access_token;
+//return oauth;
  /*
   let 
     loginURL ='https://creater-dev-ed.my.salesforce.com/services/oauth2/token',
