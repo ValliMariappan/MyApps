@@ -18,7 +18,7 @@ getPosts(){
 
 postCallToSalesforce(){
 
-  var force = require('force');
+ /*  var force = require('force');
 
   var org = force.createConnection({
     clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
@@ -37,7 +37,7 @@ org.authenticate({ username: 'kvora2@spdemo5.demo.kv', password: 'Khyati@Vora1'}
 console.log(oauth);
 return oauth;
 
-  /* let 
+  let 
     loginURL ='https://creater-dev-ed.my.salesforce.com/services/oauth2/token',
     appId = '3MVG9ZL0ppGP5UrDWHnFtfeuvi4KRg.pKAAwFJWlUH22Q2OiEmxfEMOugL8Ptree2WFs7mQjVY6v3qYwn6om3',
     oauthCallbackURL =  'https://login.salesforce.com/services/oauth2/success',
@@ -82,6 +82,8 @@ conn.login('debprotim.seal@ihsmarkit.com.stage', '#welcome123qLMLl9pkdV1F4khnM8e
   // ...
 });
 return conn;
-}*/
+}
+*/var oauth;
+return oauth;
 }
 }
