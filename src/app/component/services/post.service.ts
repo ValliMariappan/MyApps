@@ -16,9 +16,9 @@ getPosts(){
 
 postCallToSalesforce(){
 
-   /* var force = require('nforce');
+    var nforce = require('nforce');
 
-  var org = force.createConnection({
+  var org = nforce.createConnection({
     clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
     clientSecret: '6516230232174280544',
     redirectUri: 'https://test.salesforce.com/services/oauth2/success',
@@ -33,7 +33,7 @@ org.authenticate({ username: 'kvora2@spdemo5.demo.kv', password: 'Khyati@Vora1'}
   if(!err) console.log('Cached Token: ' + org.oauth.access_token)
 });
 //console.log(oauth);
-return org.oauth;
+return org.oauth.access_token;
  /*
   let 
     loginURL ='https://creater-dev-ed.my.salesforce.com/services/oauth2/token',
@@ -55,7 +55,7 @@ let requestOptions = new RequestOptions({ headers: headers });
     let fullUrl = 'grant_type=password'+'&client_id='+appId+'&client_secret='+clientsecret+'&username='+username+'&password='+password;
     return this.http.post(loginURL,fullUrl,{ headers: headers }).map(res => res.json());
     
-  debugger;*/
+  debugger;
 
     let jsforce =require('jsforce');
     let conn = new jsforce.Connection({
@@ -79,9 +79,10 @@ conn.login('debprotim.seal@ihsmarkit.com.stage', '#welcome123qLMLl9pkdV1F4khnM8e
   console.log("Org ID: " + userInfo.organizationId);
   // ...
 });
-return conn.json();
+return conn;
 }
-
+*/
 //var oauth;
 //return oauth;
+}
 }

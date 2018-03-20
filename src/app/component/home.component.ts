@@ -11,7 +11,7 @@ import { PostService } from './services/post.service';
 
 export class HomeComponent {
 
-    public response:string;
+    public response:any;
 
 
   constructor(private postsService : PostService) {
