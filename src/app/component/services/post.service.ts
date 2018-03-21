@@ -19,7 +19,6 @@ getPosts(){
 postCallToSalesforce(){
 
 
- 
 /*  debugger;
     var nforce = require('nforce');
 
