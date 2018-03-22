@@ -6,6 +6,28 @@ var nforce  = require('nforce');
  var oauth;
 //var Myglobal = require ('./globals');
 
+
+
+
+// If an incoming request uses
+// a protocol other than HTTPS,
+// redirect that request to the
+// same url but with HTTPS
+const forceSSL = function() {
+  return function (req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+      return res.redirect(['https://', req.get('Host'), req.url].join(''));
+    }
+    next();
+  }
+}
+
+// Instruct the app
+// to use the forceSSL
+// middleware
+app.use(forceSSL());
+app.use(cors());
+//getConn();
 var username      = 'kvora2@spdemo5.demo.kv',
 password      = 'Khyati@Vora1',
 securityToken = '8sIESue8gUzh9E6rphwa1vAFG';
@@ -29,17 +51,14 @@ if(!err) {
   console.log('Access Token: ' + resp.access_token);
  // debugger;
  //app.route('/home').get((req, res)=>{
-  org.query({query:"select id, name from Account"}, 
-  function (err, resp) { 
-  if(resp.records && resp.records.length){ 
-    console.log(resp.records);
-      res.send(resp.records); 
-} 
-  });
+//   org.query({query:"select id, name from Account"}, 
+//   function (err, resp) { 
+//   if(resp.records && resp.records.length){ 
+//     console.log(resp.records);
+//       res.send(resp.records); 
+// } 
+//   });
 //});
-
-
-
 
 }
 else{
@@ -47,28 +66,6 @@ else{
 }
 
 });
-
-
-
-// If an incoming request uses
-// a protocol other than HTTPS,
-// redirect that request to the
-// same url but with HTTPS
-const forceSSL = function() {
-  return function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] !== 'https') {
-      return res.redirect(['https://', req.get('Host'), req.url].join(''));
-    }
-    next();
-  }
-}
-
-// Instruct the app
-// to use the forceSSL
-// middleware
-app.use(forceSSL());
-app.use(cors());
-//getConn();
 
 
 // Run the app by serving the static files
