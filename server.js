@@ -22,12 +22,13 @@ var org = nforce.createConnection({
 });
 console.log('inside server');
 //C:\Users\vmari1\ang-material\src\app\component\home.component.html
-app.route('/home').get((req, res)=>{
+
 org.authenticate({ username: username, password: password, securityToken: securityToken }, function(err, resp){
 if(!err) {
   oauth = resp.access_token;
   console.log('Access Token: ' + resp.access_token);
  // debugger;
+ //app.route('/home').get((req, res)=>{
   org.query({query:"select id, name from Account"}, 
   function (err, resp) { 
   if(resp.records && resp.records.length){ 
@@ -35,13 +36,18 @@ if(!err) {
       res.send(resp.records); 
 } 
   });
+//});
+
+
+
+
 }
 else{
   console.log('Error: ' + err.message);
 }
 
 });
-});
+
 
 
 // If an incoming request uses
