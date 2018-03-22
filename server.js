@@ -66,15 +66,20 @@ else{
 }
 
 });
+
 if(oauth){
-  org.query({query:"select id, name from Account"}, 
+  console.log('inside query');
+  org.query({query:"select id, name from Account", oauth: oauth}, 
   function (err, resp) { 
+    console.log('inside query function');
   if(resp.records && resp.records.length){ 
     console.log(resp.records);
       res.send(resp.records); 
 } 
   });
 
+}else{
+  console.log('no oauth');
 }
 
 
