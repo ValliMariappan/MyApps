@@ -49,16 +49,14 @@ org.authenticate({ username: username, password: password, securityToken: securi
 if(!err) {
   oauth = resp.access_token;
   console.log('Access Token: ' + resp.access_token);
- // debugger;
- //app.route('/home').get((req, res)=>{
-//   org.query({query:"select id, name from Account"}, 
-//   function (err, resp) { 
-//   if(resp.records && resp.records.length){ 
-//     console.log(resp.records);
-//       res.send(resp.records); 
-// } 
-//   });
-//});
+  org.query({query:"select id, name from Account"}, 
+  function (err, resp) { 
+    console.log('inside query function');
+  if(resp.records && resp.records.length){ 
+    console.log(resp.records);
+      res.send(resp.records); 
+} 
+  });
 
 }
 else{
