@@ -54,7 +54,7 @@ if(!err) {
     console.log('inside query function');
   if(resp.records && resp.records.length){ 
     console.log(resp.records);
-      res.send(resp.records); 
+    //  res.send(resp.records); 
 } 
   });
 
@@ -65,20 +65,7 @@ else{
 
 });
 
-if(oauth){
-  console.log('inside query');
-  org.query({query:"select id, name from Account", oauth: oauth}, 
-  function (err, resp) { 
-    console.log('inside query function');
-  if(resp.records && resp.records.length){ 
-    console.log(resp.records);
-      res.send(resp.records); 
-} 
-  });
 
-}else{
-  console.log('no oauth');
-}
 
 
 // Run the app by serving the static files
