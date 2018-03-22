@@ -6,7 +6,41 @@ var nforce  = require('nforce');
  var oauth;
 //var Myglobal = require ('./globals');
 
+var username      = 'kvora2@spdemo5.demo.kv',
+password      = 'Khyati@Vora1',
+securityToken = '8sIESue8gUzh9E6rphwa1vAFG';
 
+
+var org = nforce.createConnection({
+  clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
+  clientSecret: '6516230232174280544',
+  redirectUri: 'https://test.salesforce.com/services/oauth2/success',
+  apiVersion: 'v42.0',  // optional, defaults to current salesforce API version
+  environment: 'sandbox',  // optional, salesforce 'sandbox' or 'production', production default
+  mode: 'single',
+  autoRefresh: true // optional, 'single' or 'multi' user mode, multi default
+});
+Console.log('inside server');
+//C:\Users\vmari1\ang-material\src\app\component\home.component.html
+app.get('/home',function(req, res){
+org.authenticate({ username: username, password: password, securityToken: securityToken }, function(err, resp){
+if(!err) {
+  console.log('Access Token: ' + resp.access_token);
+ // debugger;
+  org.query({query:"select id, name from Account"}, 
+  function (err, resp) { 
+  if(resp.records && resp.records.length){ 
+    console.log(resp.records);
+      res.send(resp.records); 
+} 
+  });
+}
+else{
+  console.log('Error: ' + err.message);
+}
+
+});
+});
 
 
 // If an incoming request uses
@@ -41,41 +75,7 @@ app.get('/*', function(req, res) {
 });
 
 //function getConn(){
-  var username      = 'kvora2@spdemo5.demo.kv',
-  password      = 'Khyati@Vora1',
-  securityToken = '8sIESue8gUzh9E6rphwa1vAFG';
-  
-  
-  var org = nforce.createConnection({
-    clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
-    clientSecret: '6516230232174280544',
-    redirectUri: 'https://test.salesforce.com/services/oauth2/success',
-    apiVersion: 'v42.0',  // optional, defaults to current salesforce API version
-    environment: 'sandbox',  // optional, salesforce 'sandbox' or 'production', production default
-    mode: 'single',
-    autoRefresh: true // optional, 'single' or 'multi' user mode, multi default
-  });
 
-//C:\Users\vmari1\ang-material\src\app\component\home.component.html
-app.route('/home').get((req, res)=>{
-org.authenticate({ username: username, password: password, securityToken: securityToken }, function(err, resp){
-  if(!err) {
-    console.log('Access Token: ' + resp.access_token);
-   // debugger;
-    org.query({query:"select id, name from Account"}, 
-    function (err, resp) { 
-    if(resp.records && resp.records.length){ 
-      console.log(resp.records);
-        res.send(resp.records); 
-  } 
-    });
-  }
-  else{
-    console.log('Error: ' + err.message);
-  }
-
-  });
- });
  
  // return oauth;
 //}
