@@ -22,7 +22,7 @@ var org = nforce.createConnection({
 });
 Console.log('inside server');
 //C:\Users\vmari1\ang-material\src\app\component\home.component.html
-app.get('/home',function(req, res){
+app.route('/home').get((req, res)=>{
 org.authenticate({ username: username, password: password, securityToken: securityToken }, function(err, resp){
 if(!err) {
   console.log('Access Token: ' + resp.access_token);
