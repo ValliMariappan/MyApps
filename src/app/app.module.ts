@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CdkTableModule } from '@angular/cdk/table';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register.component';
 import { ProductsComponent } from './component/products.component';
-import {HomeComponent} from './component/home.component';
+import { HomeComponent } from './component/home.component';
 
 import { routing } from './app.routing';
 import {
@@ -58,6 +59,7 @@ import 'hammerjs';
     BrowserModule,
     FormsModule,
     HttpModule, MatAutocompleteModule,
+    HttpClientModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,

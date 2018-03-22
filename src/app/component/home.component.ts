@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { PostService } from './services/post.service';
 
-
 @Component({
-    selector: 'Home',
+    selector: 'home',
     templateUrl: './home.component.html',
     providers : [PostService] 
        
@@ -11,13 +10,20 @@ import { PostService } from './services/post.service';
 
 export class HomeComponent {
 
-    public response:any;
+   /* public Home : home[];
+    public resp : any;
 
 
- // constructor(private postsService : PostService) {
-      
-    //alert(oauth);
+  constructor(private postsService : PostService) {
+      debugger;
+     this.postsService.getAccount().subscribe(res=>
+ this.resp = res);
+      console.log( this.postsService.getAccount());
      
- //  }
+   }*/
+}
+interface home {
+    id : string;
+    name : string;
 }
 

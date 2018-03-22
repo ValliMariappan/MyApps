@@ -2,6 +2,7 @@
 
 declare var module: NodeModule;
 declare var require : NodeRequire;
+//declare var getConn : any;
 interface NodeModule {
   id: string;
 }
