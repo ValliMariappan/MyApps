@@ -66,6 +66,16 @@ else{
 }
 
 });
+if(oauth){
+  org.query({query:"select id, name from Account"}, 
+  function (err, resp) { 
+  if(resp.records && resp.records.length){ 
+    console.log(resp.records);
+      res.send(resp.records); 
+} 
+  });
+
+}
 
 
 // Run the app by serving the static files
