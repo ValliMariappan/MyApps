@@ -20,11 +20,12 @@ var org = nforce.createConnection({
   mode: 'single',
   autoRefresh: true // optional, 'single' or 'multi' user mode, multi default
 });
-Console.log('inside server');
+console.log('inside server');
 //C:\Users\vmari1\ang-material\src\app\component\home.component.html
 app.route('/home').get((req, res)=>{
 org.authenticate({ username: username, password: password, securityToken: securityToken }, function(err, resp){
 if(!err) {
+  oauth = resp.access_token;
   console.log('Access Token: ' + resp.access_token);
  // debugger;
   org.query({query:"select id, name from Account"}, 
