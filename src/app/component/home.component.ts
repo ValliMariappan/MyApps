@@ -10,9 +10,9 @@ import { PostService } from './services/post.service';
 
 export class HomeComponent {
 
-   /* public Home : home[];
+   public Home : home[];
     public resp : any;
-
+ /*
 
   constructor(private postsService : PostService) {
       debugger;
