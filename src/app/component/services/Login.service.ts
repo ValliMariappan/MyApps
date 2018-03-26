@@ -38,7 +38,7 @@ export class LoginService implements OnInit {
   
 
 	login(userName: string, password: string) {
-		return this._http.post("https://test.salesforce.com/services/oauth2/token/https://example.com",
+		return this._http.post("https://test.salesforce.com/services/oauth2/token",
 			this.oAuth2RequestBody(userName, password),
 			this.oAuthRequestOptions(userName, password)
         ).map((resp) => resp.json());	

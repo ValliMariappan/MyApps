@@ -24,7 +24,7 @@ return function (req, res, next) {
 var corsOptions = {
   origin: 'https://ang-material.herokuapp.com',
   credentials : true,
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+ // optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 
 app.use(forceSSL());
