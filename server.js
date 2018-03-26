@@ -7,7 +7,7 @@ const history = require('connect-history-api-fallback');
 var proxy = require('http-proxy-middleware');
 var router = express.Router();
 
-const API_URL = process.env.API_URL || 'http://localhost:8080';
+const API_URL = process.env.API_URL || 'https://ang-material.herokuapp.com';
 //app.set('port', (process.env.PORT || 5000));
 
 /**
@@ -32,7 +32,7 @@ app.use('/oauth2',  proxy({
 );
 
 router.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin","https://ang-material.herokuapp.com/home");
+  res.header("Access-Control-Allow-Origin","https://ang-material.herokuapp.com");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization");
   next();
 }); 
@@ -46,7 +46,7 @@ return function (req, res, next) {
 }
 }
 var corsOptions = {
-  origin: 'https://ang-material.herokuapp.com/home',
+  origin: 'https://ang-material.herokuapp.com',
   credentials : true,
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
