@@ -6,7 +6,7 @@ var nforce  = require('nforce');
 var router = express.Router();
 
 router.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin","https://ang-material.herokuapp.com");
+  res.header("Access-Control-Allow-Origin","https://ang-material.herokuapp.com/home");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization");
   next();
 }); 
@@ -22,7 +22,7 @@ return function (req, res, next) {
 }
 }
 var corsOptions = {
-  origin: 'https://ang-material.herokuapp.com',
+  origin: 'https://ang-material.herokuapp.com/home',
   credentials : true,
  // optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
