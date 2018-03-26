@@ -3,36 +3,31 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 var nforce  = require('nforce');
- var oauth;
-//var Myglobal = require ('./globals');
+var oauth;
 
-
-
-
-// If an incoming request uses
-// a protocol other than HTTPS,
-// redirect that request to the
-// same url but with HTTPS
+//forse SSL
 const forceSSL = function() {
-  return function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] !== 'https') {
-      return res.redirect(['https://', req.get('Host'), req.url].join(''));
-    }
-    next();
+return function (req, res, next) {
+  if (req.headers['x-forwarded-proto'] !== 'https') {
+    return res.redirect(['https://', req.get('Host'), req.url].join(''));
   }
+  next();
+}
+}
+var corsOptions = {
+  origin: 'https://dashboard.heroku.com',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 
-// Instruct the app
-// to use the forceSSL
-// middleware
 app.use(forceSSL());
-app.use(cors());
-//getConn();
+app.use(cors(corsOptions));
+
+//salesforce Conn
 var username      = 'kvora2@spdemo5.demo.kv',
 password      = 'Khyati@Vora1',
 securityToken = '8sIESue8gUzh9E6rphwa1vAFG';
 
-
+//create Conn
 var org = nforce.createConnection({
   clientId: '3MVG9FS3IyroMOh5Oc_W3mUeqNjR0hZvIHkZr.TkWQnAHbUL0sR1NuFy5RnrTyR07B0DQ9CK6.cEZ8EltifTe',
   clientSecret: '6516230232174280544',
@@ -43,52 +38,28 @@ var org = nforce.createConnection({
   autoRefresh: true // optional, 'single' or 'multi' user mode, multi default
 });
 console.log('inside server');
-//C:\Users\vmari1\ang-material\src\app\component\home.component.html
 
+//Auth
 org.authenticate({ username: username, password: password, securityToken: securityToken }, function(err, resp){
-if(!err) {
-  oauth = resp.access_token;
-  console.log('Access Token: ' + resp.access_token);
-  org.query({query:"select id, name from Account"}, 
-  function (err, resp) { 
-    console.log('inside query function');
-  if(resp.records && resp.records.length){ 
-    console.log(resp.records);
-    //  res.send(resp.records); 
-} 
-  });
+  if(!err) {
+    oauth = resp.access_token;
+    console.log('Access Token: ' + resp.access_token);
+    org.query({query:"select id, name from Account"}, 
+      function (err, resp) { 
+        console.log('inside query function');
+        if(resp.records && resp.records.length){ 
+          console.log(resp.records);
 
-}
-else{
-  console.log('Error: ' + err.message);
-}
-
+        } 
+    });
+  }
+  else{
+    console.log('Error: ' + err.message);
+  }
 });
 
-
-
-
-// Run the app by serving the static files
-// in the dist directory
 app.use(express.static(__dirname + '/dist'));
-
-// For all GET requests, send back index.html
-// so that PathLocationStrategy can be used
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/index.html'));
+res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
-
-//function getConn(){
-
- 
- // return oauth;
-//}
-
-
- 
-  
- 
-
-// Start the app by listening on the default
-// Heroku port
 app.listen(process.env.PORT || 8080);

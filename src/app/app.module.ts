@@ -10,6 +10,7 @@ import { RegisterComponent } from './component/register.component';
 import { ProductsComponent } from './component/products.component';
 import { HomeComponent } from './component/home.component';
 
+
 import { routing } from './app.routing';
 import {
   MatAutocompleteModule,
