@@ -3,7 +3,14 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 var nforce  = require('nforce');
-var oauth;
+var router = express.Router();
+
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin","*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization");
+  next();
+}); 
+//var oauth;
 
 //forse SSL
 const forceSSL = function() {

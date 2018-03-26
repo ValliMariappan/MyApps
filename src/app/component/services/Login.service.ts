@@ -38,7 +38,7 @@ export class LoginService implements OnInit {
   
 
 	login(userName: string, password: string) {
-		return this._http.post("https://test.salesforce.com/services/oauth2/authenticate",
+		return this._http.post("https://test.salesforce.com/services/oauth2/token/https://example.com",
 			this.oAuth2RequestBody(userName, password),
 			this.oAuthRequestOptions(userName, password)
         ).map((resp) => resp.json());	
@@ -80,7 +80,8 @@ export class LoginService implements OnInit {
 	}
 
 	headersAcceptJson(headers: Headers) {
-		headers.append('Accept', 'application/json');
+        headers.append('Accept', 'application/json');
+      // headers.append( 'Access-Control-Request-Method', 'POST');
 	}	
 
 }
