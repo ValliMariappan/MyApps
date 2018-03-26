@@ -7,6 +7,8 @@ import {AuthToken} from './auth-token';
 import { HttpClientModule } from '@angular/common/http';
 
 import {AuthHttpService} from './auth-http.service';
+import { LocalStorageService } from './local-storage.service';
+
 
 
 
@@ -25,7 +27,8 @@ export class LoginService implements OnInit {
 
 	constructor(
 		private _http: Http,
-		private _authHttpService: AuthHttpService
+        private _authHttpService: AuthHttpService,
+        private _localStorageService: LocalStorageService
 	
 		) {
 	
@@ -34,16 +37,57 @@ export class LoginService implements OnInit {
 	ngOnInit() {
 
     }
-    
+    readAuthenticationFromStorage(): string {
+		let user = this._localStorageService.getItem('logged_user');
+		let access_token = this._localStorageService.getItem('access_token');
+
+		if (user && access_token) {
+			this._authHttpService.access_token = access_token;			
+			return user;
+		}
+		return null;
+	}
+
+	storeAuthentication(authToken: AuthToken, userName: string) {
+		this._localStorageService.setItem('access_token', authToken.access_token);
+		this._localStorageService.setItem('logged_user', userName);
+
+		this._authHttpService.access_token = authToken.access_token;
+	}
+
+    clearAuthentication() {
+		this._localStorageService.removeItem('access_token');
+		this._localStorageService.removeItem('logged_user');
+		this._authHttpService.access_token = null;
+	}
+
+	handleLoginError(error: any) {
+
+		let msg = 'Server Error';
+
+		if (error.status === 400) {
+			msg = "Wrong user or password";
+		}
+
+		msg = "Login failed : " + msg;
+
+		return Observable.throw(msg);
+	}
   
 
 	login(userName: string, password: string) {
-		return this._http.post("https://test.salesforce.com/services/oauth2/token",
+		return this._http.post("https://test.salesforce.com/services/oauth2/token/",
 			this.oAuth2RequestBody(userName, password),
 			this.oAuthRequestOptions(userName, password)
-        ).map((resp) => resp.json());	
-        
-			
+        ).map((resp) => resp.json()).subscribe(
+            (resp)=>{
+                console.log(resp);
+                this.storeAuthentication(resp, userName);
+                          //  this.fetchUserInfo(userName, onSuccess);
+                          
+            },
+           
+        );		
            
 	}
 
