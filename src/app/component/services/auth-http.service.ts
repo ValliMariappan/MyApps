@@ -3,7 +3,7 @@ import {Http, RequestOptionsArgs, RequestOptions, Response, Headers} from '@angu
 
 import {Observable} from 'rxjs/Observable';
 
-import {LoginService} from './login.service';
+import {LoginService} from './Login.service';
 
 @Injectable()
 export class AuthHttpService {

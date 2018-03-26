@@ -21,7 +21,7 @@ var corsOptions = {
 
 app.use(forceSSL());
 app.use(cors(corsOptions));
-
+/*
 //salesforce Conn
 var username      = 'kvora2@spdemo5.demo.kv',
 password      = 'Khyati@Vora1',
@@ -56,7 +56,7 @@ org.authenticate({ username: username, password: password, securityToken: securi
   else{
     console.log('Error: ' + err.message);
   }
-});
+});*/
 
 app.use(express.static(__dirname + '/dist'));
 app.get('/*', function(req, res) {
