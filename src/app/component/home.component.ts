@@ -17,7 +17,7 @@ export class HomeComponent {
 
   constructor(private postsService : LoginService) {
       
-     this.postsService.login('kvora2@spdemo5.demo.kv','Khyati@Vora1');
+     this.postsService.login('kvora2@spdemo5.demo.kv','Khyati@Vora18sIESue8gUzh9E6rphwa1vAFG');
      console.log(this.resp);
     //console.log( this.postsService.login('kvora2@spdemo5.demo.kv','Khyati@Vora18sIESue8gUzh9E6rphwa1vAFG') );
      
