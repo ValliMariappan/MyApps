@@ -1,4 +1,38 @@
-<h1>Salesforce Contacts</h1>
+<h1>Registered Users</h1>
 
-<p>{{resp}}</p>
- 
+    <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="users">
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns; let i = index;" ></mat-row>
+      
+          <ng-container matColumnDef="fname">
+            <mat-header-cell *matHeaderCellDef> FirstName </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.firstName__c}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="lname">
+            <mat-header-cell *matHeaderCellDef> LastName </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.lastName__c}} </mat-cell>
+          </ng-container>
+      
+
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email__c}} </mat-cell>
+          </ng-container>
+      
+
+          <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.phone__c}} </mat-cell>
+          </ng-container>
+          <mat-spinner></mat-spinner>
+          <ng-container matColumnDef="delete">
+              <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+              <mat-cell *matCellDef="let element"><button mat-button color="primary" (click)="deleteRec(element.Id)" ><mat-icon>delete</mat-icon></button> </mat-cell>
+            </ng-container>
+      
+         
+        </mat-table>
+      </div>
+      

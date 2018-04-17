@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register.component';
 import { ProductsComponent } from './component/products.component';
 import { HomeComponent } from './component/home.component';
+import { LoginComponent } from './component/login.component';
+import { PostService } from './component/post.service';
+import { LogoutComponent } from './component/logout.component';
 
 
 
@@ -22,7 +25,20 @@ const appRoutes: Routes =[
 {
     path : 'home',
     component : HomeComponent
+},
+{
+    path: 'login',
+    component : LoginComponent
+},
+{
+    path : 'post',
+    component : PostService
+},
+{
+    path : 'logout',
+    component : LogoutComponent
 }
+
 
 
 ];

@@ -9,9 +9,12 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register.component';
 import { ProductsComponent } from './component/products.component';
 import { HomeComponent } from './component/home.component';
-
-
+import { LoginComponent } from './component/login.component';
+import { PostService } from './component/post.service';
+import { LocalStorageService} from './component/localstorage.component';
+import { LogoutComponent } from './component/logout.component';
 import { routing } from './app.routing';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -53,7 +56,12 @@ import 'hammerjs';
     AppComponent,
     RegisterComponent,
     ProductsComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    PostService,
+    LogoutComponent,
+    
+    
   
   ],
   imports: [
